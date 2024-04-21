@@ -1,0 +1,65 @@
+
+#backgroundYellow {
+    background-color: #EFC206;
+}
+
+#customLetterTitles {
+    font-family: 'Jersey 10 Charted';
+    font-size: 80px;
+    color: white;
+}
+
+.imgTitle {
+    width: 200px;
+    height: 120px;  
+}
+
+body {
+    background-image: url('../../../assets/SWBackground.jpg');
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#imgGitHub {
+  border-radius: 50% !important;
+  overflow: hidden;
+}
+
+.textoBlanco {
+    color: white;
+}
+
+#customLetterTitles {
+    font-family: 'Jersey 10 Charted';
+    font-size: 80px;
+    color: white;
+}
+
+.arrowLeft {
+    color: #FFF;
+    background-color: #EFC206;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+@media (max-width: 450px) {
+.h-custom {
+height: 50%;
+}
+}
+

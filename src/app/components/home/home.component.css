@@ -1,0 +1,77 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #000;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+
+#backgroundYellow {
+    background-color: #EFC206;
+}
+
+#customLetterTitles {
+    font-family: 'Jersey 10 Charted';
+    font-size: 80px;
+    color: white;
+}
+
+.customCardTitles {
+    font-family: 'Jersey 10 Charted';
+    font-size: 40px;
+    color: white;
+}
+
+body {
+    background-image: url('../../../assets/SWBackground.jpg');
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.imgTitle {
+    width: 200px;
+    height: 120px;  
+}
+
+.sizeCards,
+.cardButton {
+    width: 400px;
+    height: 400px; 
+    background-color: #000;  
+}
+
+.containerCards{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.card:hover {
+    cursor: pointer;
+  }
+
+  
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.botonLogout {
+    text-align: right;
+}
+
+
+@media (max-width: 450px) {
+.h-custom {
+height: 50%;
+}
+}

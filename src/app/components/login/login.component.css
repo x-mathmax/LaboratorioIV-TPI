@@ -19,10 +19,6 @@ height: calc(100% - 73px);
     color: white;
 }
 
-/* .vh-100 {
-    background-color: #000;
-} */
-
 .vh-100 {
     background-image: url('../../../assets/SWBackground.jpg');
 }
