@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "claseDos": {
+    "LaboratorioIV-TPI": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/clase-dos",
+            "outputPath": "dist/laboratorioiv-tpi",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "claseDos:build:production"
+              "buildTarget": "LaboratorioIV-TPI:build:production"
             },
             "development": {
-              "buildTarget": "claseDos:build:development"
+              "buildTarget": "LaboratorioIV-TPI:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "claseDos:build"
+            "buildTarget": "LaboratorioIV-TPI:build"
           }
         },
         "test": {
