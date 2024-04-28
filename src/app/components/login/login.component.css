@@ -9,7 +9,7 @@ background: #000;
 height: calc(100% - 73px);
 }
 
-#backgroundYellow {
+.backgroundYellow {
     background-color: #EFC206;
 }
 
@@ -21,6 +21,13 @@ height: calc(100% - 73px);
 
 .vh-100 {
     background-image: url('../../../assets/SWBackground.jpg');
+}
+
+.registerButton {
+    margin-left: 10px;
+}
+.registerButton:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 450px) {

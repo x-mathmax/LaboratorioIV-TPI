@@ -60,4 +60,8 @@ export class LoginComponent {
     this.username = 'barbaram@gmail.com';
     this.password =  'root1234';
   }
+
+  goRegister():void {
+    this.router.navigate(['/register']);
+  }
 }

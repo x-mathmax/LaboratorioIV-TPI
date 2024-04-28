@@ -9,19 +9,19 @@
           <form>
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
               <p class="lead fw-normal mb-0 me-3" id="customLetter">Ingresa con:</p>
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1" id="backgroundYellow">
+              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1 backgroundYellow">
                 <i class="fab fa-facebook-f"></i>
               </button>
   
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1" id="backgroundYellow">
+              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1 backgroundYellow">
                 <i class="fab fa-twitter"></i>
               </button>
   
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1" id="backgroundYellow">
+              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1 backgroundYellow">
                 <i class="fab fa-linkedin-in"></i>
               </button>
 
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1" id="backgroundYellow">
+              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-floating mx-1 backgroundYellow">
                 <i class="fab fa-google"></i>
               </button>
             </div>
@@ -45,12 +45,12 @@
             </div>
   
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;" id="backgroundYellow" (click)="login()">Iniciar Sesión</button>
-                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem; margin-left: 2rem;" id="backgroundYellow" (click)="userDataLoading()">Cargar Datos</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0 text-light">¿No posee una cuenta?<a href="#!"
-                  class="link-warning">Registrarse</a></p>
+              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg backgroundYellow"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="login()">Iniciar Sesión</button>
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg backgroundYellow"
+                style="padding-left: 2.5rem; padding-right: 2.5rem; margin-left: 2rem;" (click)="userDataLoading()">Cargar Datos</button>
+              <p class="small fw-bold mt-2 pt-1 mb-0 text-light">¿No posee una cuenta?<a
+                  class="link-warning registerButton"(click)="goRegister()">Registrarse</a></p>
             </div>
 
             <div>

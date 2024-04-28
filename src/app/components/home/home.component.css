@@ -34,9 +34,10 @@ body {
     overflow-x: hidden;
 }
 
-.imgTitle {
+#logo {
     width: 200px;
     height: 120px;  
+    margin-left: 15px;
 }
 
 .sizeCards,
@@ -65,10 +66,14 @@ body {
     right: 0;
 }
 
-.botonLogout {
+/* .botonLogout {
     text-align: right;
-}
+} */
 
+a.nav-link {
+    border-radius: 5px;
+    color: white;
+}
 
 @media (max-width: 450px) {
 .h-custom {

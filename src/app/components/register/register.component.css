@@ -1,0 +1,32 @@
+.vh-100 {
+    background-image: url('../../../assets/SWBackground.jpg');
+}
+
+.customLetter {
+    font-family: 'Jersey 10 Charted';
+}
+
+#titleSize {
+    font-size: xx-large;
+}
+
+#textSize {
+    font-size: x-large;
+}
+
+#backgroundYellow {
+    background-color: #EFC206;
+}
+
+.arrowLeft {
+    color: #FFF;
+    background-color: #EFC206;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
