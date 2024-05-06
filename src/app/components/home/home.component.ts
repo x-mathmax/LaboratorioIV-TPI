@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConnectionService } from '../../services/connection.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,15 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(private router: Router){}
+  currentUser : string;
+
+  constructor(private router: Router, private connectionService: ConnectionService){
+    this.currentUser = '';
+  }
+
+  ngOnInit(): void {
+    this.currentUser = this.connectionService.getItem('username');
+  }
 
   goAboutMe():void {
     this.router.navigate(['/about']);
@@ -18,6 +27,10 @@ export class HomeComponent {
 
   logout():void {
     this.router.navigate(['/login']);
+  }
+
+  goHangman():void {
+    this.router.navigate(['/hangman']);
   }
 
 }

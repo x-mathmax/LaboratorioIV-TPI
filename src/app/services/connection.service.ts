@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,26 @@ export class ConnectionService {
     localStorage.removeItem(key);
   }
 
-  setUserAndPassTest(): void {
-    localStorage.setItem('username', JSON.stringify('barbaram@gmail.com'));
-    localStorage.setItem('password', JSON.stringify('root1234'));
+  setUserAndPassTest(username:string, password:string): void {
+    localStorage.setItem('username', JSON.stringify(username));
+    localStorage.setItem('password', JSON.stringify(password));
+  }
+
+  executePopUp(mensaje : string):void {
+    Swal.fire({
+      title: mensaje,
+      width: 600,
+      padding: "3em",
+      color: "#EFC206",
+      background: "#fff url(/assets/SWBackground.jpg)",
+      backdrop: `
+        rgba(0,0,0,0.6)
+      `,
+      customClass: {
+        confirmButton: 'custom-confirm-button-class'
+      },
+      confirmButtonColor: '#EFC206',
+      confirmButtonText: 'Aceptar'
+    });
   }
 }

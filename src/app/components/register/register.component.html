@@ -13,24 +13,31 @@
                 <h2 class="lead fw-normal mb-0 me-15 customLetter" id="titleSize">Crear una cuenta</h2>
                 <p class="text-white-50 mb-5">Por favor, ingrese los datos solicitados a continuación:</p>
 
-                <div data-mdb-input-init class="form-outline form-white mb-4">
+                <!-- <div data-mdb-input-init class="form-outline form-white mb-4">
                     <input type="text" id="typeNameX" class="form-control form-control-lg" />
                     <label class="form-label customLetter" id="textSize" for="typeNameX">Nombre</label>
-                  </div>
+                  </div> -->
   
                 <div data-mdb-input-init class="form-outline form-white mb-4">
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                  <input [(ngModel)]="newUserMail" type="email" id="typeEmailX" class="form-control form-control-lg" />
                   <label class="form-label customLetter" id="textSize" for="typeEmailX">Coreo electrónico</label>
                 </div>
   
                 <div data-mdb-input-init class="form-outline form-white mb-4">
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                  <input [(ngModel)]="newUserPWD" type="password" id="typePasswordX" class="form-control form-control-lg" />
                   <label class="form-label customLetter" id="textSize" for="typePasswordX">Contraseña</label>
                 </div>
   
-                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5 " id="backgroundYellow" type="submit">Crear Usuario</button> 
+                <button (click)="Register()" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5 " 
+                id="backgroundYellow" type="submit" >Crear Usuario</button> 
               </div>
   
+              @if (loggedUser != ""){
+                <h2 class="text-center text-primary">Usuario registrado: {{loggedUser}}</h2>
+            }
+            @if(flagError){
+                <p class="text-center text-primary">{{msjError}}</p>
+            }
             </div>
           </div>
         </div>

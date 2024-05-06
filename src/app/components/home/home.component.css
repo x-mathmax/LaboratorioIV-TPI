@@ -9,8 +9,13 @@ background: #000;
 height: calc(100% - 73px);
 }
 
-#backgroundYellow {
+.currentUser {
+    color: #EFC206;
+}
+
+.backgroundYellow {
     background-color: #EFC206;
+    margin-left: 10px;
 }
 
 #customLetterTitles {
@@ -51,6 +56,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-bottom: 10px;
 }
 
 

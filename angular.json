@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LaboratorioIV-TPI": {
+    "laboratorioiv-tpi": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "LaboratorioIV-TPI:build:production"
+              "buildTarget": "laboratorioiv-tpi:build:production"
             },
             "development": {
-              "buildTarget": "LaboratorioIV-TPI:build:development"
+              "buildTarget": "laboratorioiv-tpi:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "LaboratorioIV-TPI:build"
+            "buildTarget": "laboratorioiv-tpi:build"
           }
         },
         "test": {
