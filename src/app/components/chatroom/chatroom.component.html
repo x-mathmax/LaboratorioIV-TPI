@@ -1,0 +1,48 @@
+<div id="container">
+    <main>
+        <ul id="chat" >
+            
+            <div  *ngFor="let item of messages ">
+                <div *ngIf="item.mail != this.user.userInfo.email ">
+                
+                <li   class="you" >
+                <div class="algo">
+                    <span class="green"></span>
+                    <h2 style="padding-right:5px ;">{{item.mail}} </h2>
+                    <h3> {{item?.dia}}, {{item?.hora}}</h3>
+                </div>
+                <div class="triangle"></div>
+                <div class="message">
+                    {{item?.message}}
+                
+                </div>
+                </li>
+                </div>
+
+                
+            <div *ngIf="item.mail === this.user.userInfo.email">
+                <li    class="me">
+                <div class="algo">
+                    <h3>{{item?.dia}}, {{item?.hora}}</h3>
+                    <span class="blue"></span>
+                </div>
+                <div class="triangle"></div>
+                <div class="message">
+                    {{item?.message}}
+                </div>
+                </li>
+            </div>    
+            </div>
+        </ul>
+        <section>
+            <textarea placeholder="..." [(ngModel)]="mensaje"></textarea>
+        </section>
+            
+        <button (click)="enviarMensaje()">Enviar</button>
+    </main>
+</div>
+
+
+
+
+

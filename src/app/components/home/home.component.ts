@@ -32,5 +32,13 @@ export class HomeComponent {
   goHangman():void {
     this.router.navigate(['/hangman']);
   }
+  
+  goChatroom():void {
+    this.router.navigate(['/chatroom']);
+  }
+
+  goKeyboard():void {
+    this.router.navigate(['/keyboard']);
+  }
 
 }

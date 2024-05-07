@@ -4,6 +4,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ChatroomComponent } from './components/chatroom/chatroom.component';
+import { HangmanComponent } from './components/hangman/hangman.component';
+import { TecladoComponent } from './components/hangman/Modulos/teclado/teclado.component';
 
 
 export const routes: Routes = [
@@ -11,6 +14,13 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutMeComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'chatroom', component: ChatroomComponent },
+    { path: 'hangman', component: HangmanComponent },
+    { path: 'keyboard', component: TecladoComponent },
+    // { 
+    //     path: 'hangman', 
+    //     loadChildren: () => import('../../src/app/components/hangman/hangman.component').then(m => m.HangmanComponent)
+    // },
     { path: '', redirectTo: '/login', pathMatch: "full" }, 
     { path: '**', component: PageNotFoundComponent }
 ];
