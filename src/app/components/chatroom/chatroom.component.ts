@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ChatService } from '../../services/chat.service';
@@ -22,7 +22,7 @@ export class ChatroomComponent implements OnInit {
   constructor(
     private chat: ChatService,
     public user: AuthService,
-    private auth: AngularFireAuth,
+    private auth: Auth,
     private router: Router
   ) {}
 

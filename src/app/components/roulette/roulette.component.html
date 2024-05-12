@@ -1,0 +1,9 @@
+<body>
+  <div class="ruleta">
+    <div class="ruleta-body" [ngClass]="{ 'spinning': spinning }" [style.transform]="spinning ? 'rotate(' + rotation + 'deg)' : ''">
+      <img src="../../../assets/ruletaPrueba.png" alt="Ruleta" class="ruleta-image">
+    </div>
+    <button [disabled]="spinning" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-md text-white backgroundYellow"
+    (click)="girarRuleta()">Girar</button>
+  </div>
+</body>

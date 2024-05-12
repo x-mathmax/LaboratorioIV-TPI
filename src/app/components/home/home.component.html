@@ -1,23 +1,4 @@
 <body>
- <!--  <div class="botonLogout">  
-    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-md text-white"
-                style="margin-right: 2.5rem; margin-top: 2.5rem;" id="backgroundYellow" (click)="logout()">Cerrar Sesión</button>
-  </div> -->
-
-  
-<!-- Encabezado con imagen y título
-<div class="container-fluid text-white py-5">
-    <div class="row align-items-center">
-      <div class="col-md-6 text-center">
-        <img src="../../../assets/SWLogo.png" alt="Imagen" class="img-fluid imgTitle">
-      </div>
-      <div class="col-md-6 text-center">
-        <h1 id="customLetterTitles">Sala de Juegos</h1>
-      </div>
-
-    </div>
-  </div> -->
-
   <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -64,7 +45,7 @@
           <h5 class="card-title text-center customCardTitles">Ahorcado</h5>
         </div>
       </div>
-      <div class="card text-white col-md-6 mb-6 sizeCards">
+      <div class="card text-white col-md-6 mb-6 sizeCards" (click)="goGreaterLesser()">
         <img src="../../../assets/leia.jpeg" class="card-img" alt="...">
         <div class="card-img-overlay" >
           <h5 class="card-title text-center customCardTitles">Mayor o Menor</h5>  
@@ -72,13 +53,13 @@
       </div>
     </div>
     <div class="row containerCards">
-      <div class="card text-white col-md-6 mb-6 sizeCards">
+      <div class="card text-white col-md-6 mb-6 sizeCards" (click)="goQuizGame()">
         <img src="../../../assets/mandalorian.jpg" class="card-img" alt="...">
         <div class="card-img-overlay">
           <h5 class="card-title text-center customCardTitles">Preguntados</h5>
         </div>
       </div>
-      <div class="card text-white col-md-6 mb-6 sizeCards">
+      <div class="card text-white col-md-6 mb-6 sizeCards"(click)="goRoulette()">
         <img src="../../../assets/naves.png" class="card-img" alt="...">
         <div class="card-img-overlay">
           <h5 class="card-title text-center customCardTitles">Ruleta</h5>
@@ -87,6 +68,7 @@
     </div>
   </div>
 
+  <!-- Falso footer -->
   <div
     class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 footer">
     <div class="text-white mb-3 mb-md-0">

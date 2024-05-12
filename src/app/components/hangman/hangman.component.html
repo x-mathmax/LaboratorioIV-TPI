@@ -1,8 +1,39 @@
-<div style="position: relative;">
-    <canvas class="hangman" id="gallows"
-            style="z-index: 0;">
-    </canvas>
-    <canvas class="hangman" id="hangman"
-            style="position: absolute; left: 0; top: 0; z-index: 1;">
-    </canvas>
-  </div>
+<body>
+    <div class="ahorcado">
+
+      <!-- Cuerpo -->
+
+      <div class="ahorcado-cuerpo">
+        <div class="partes-contenedor">
+          <div *ngFor="let parte of partesCuerpo; let i = index" class="parte" [class.visible]="i < intentos">
+            <img *ngIf="parte" [src]="getImageUrl(i)" alt="Parte del cuerpo">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Palabra -->
+      <div class="palabra">
+              <div *ngFor="let letra of palabraSeleccionada.split(''); let i = index" class="letra">
+                {{ letrasAdivinadas[i] ? letra : '_' }}
+              </div>
+      </div>
+      
+      <!-- Teclado -->
+      <div class="teclado">
+        <div *ngFor="let letra of letrasDisponibles" (click)="seleccionarLetra(letra)" class="tecla" [class.seleccionada]="letrasSeleccionadas.has(letra)">
+          {{ letra }}
+        </div>
+      </div>
+
+
+      
+      <!-- Mensaje de resultado -->
+      <div *ngIf="resultado !== null" class="resultado">
+        {{ resultado ? '¡Felicitaciones, has ganado!' : '¡Animo! Juega nuevamente.' }}
+      </div>
+      
+      <!-- Reiniciar -->
+      <button (click)="reiniciarJuego()">Reiniciar</button>
+    </div>
+</body>

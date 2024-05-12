@@ -6,7 +6,9 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { HangmanComponent } from './components/hangman/hangman.component';
-import { TecladoComponent } from './components/hangman/Modulos/teclado/teclado.component';
+import { RouletteComponent } from './components/roulette/roulette.component';
+import { GreaterorlesserComponent } from './components/greaterorlesser/greaterorlesser.component';
+import { QuizgameComponent } from './components/quizgame/quizgame.component';
 
 
 export const routes: Routes = [
@@ -16,7 +18,9 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'chatroom', component: ChatroomComponent },
     { path: 'hangman', component: HangmanComponent },
-    { path: 'keyboard', component: TecladoComponent },
+    { path: 'roulette', component: RouletteComponent },
+    { path: 'greaterorlesser', component: GreaterorlesserComponent },
+    { path: 'quizgame', component: QuizgameComponent },
     // { 
     //     path: 'hangman', 
     //     loadChildren: () => import('../../src/app/components/hangman/hangman.component').then(m => m.HangmanComponent)

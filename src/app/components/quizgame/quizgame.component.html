@@ -1,0 +1,16 @@
+<body>
+  <div *ngIf="currentCharacter">
+    <p>¿Cuál es el nombre de este personaje?</p>
+    <img [src]="currentCharacter.image" class="pj" alt="Personaje">
+    <div *ngFor="let buttonState of buttonStates; let i = index">
+        <button 
+          id="option{{i}}" 
+          (click)="checkAnswer(buttonState.option)" 
+          [style.background-color]="buttonState.backgroundColor">
+          {{ buttonState.option }}
+        </button>
+      </div>
+    <p>Puntaje: {{ puntos }}</p>
+    <button (click)="nextButton()">Siguiente</button>
+  </div>
+</body>

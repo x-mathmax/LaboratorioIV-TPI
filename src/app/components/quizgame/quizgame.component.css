@@ -1,0 +1,27 @@
+body {
+    background-image: url('../../../assets/SWBackground.jpg');
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+  }
+  
+  .correct-answer {
+    background-color: green;
+  }
+  
+  .wrong-answer {
+    background-color: red;
+  }
+
+  .pj {
+    width: 500px;
+    height: 500px;
+  }
+

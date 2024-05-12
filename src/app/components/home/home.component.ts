@@ -41,4 +41,16 @@ export class HomeComponent {
     this.router.navigate(['/keyboard']);
   }
 
+  goRoulette():void {
+    this.router.navigate(['/roulette']);
+  }
+
+  goGreaterLesser():void {
+    this.router.navigate(['/greaterorlesser']);
+  }
+
+  goQuizGame():void {
+    this.router.navigate(['/quizgame']);
+  }
+  
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TecladoComponent } from './teclado.component';
+import { RouletteComponent } from './roulette.component';
 
-describe('TecladoComponent', () => {
-  let component: TecladoComponent;
-  let fixture: ComponentFixture<TecladoComponent>;
+describe('RouletteComponent', () => {
+  let component: RouletteComponent;
+  let fixture: ComponentFixture<RouletteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TecladoComponent]
+      imports: [RouletteComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TecladoComponent);
+    fixture = TestBed.createComponent(RouletteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -37,46 +37,6 @@ export class LoginComponent {
     
   }
 
-
-//this.executePopUp("Login fallido. Por favor, reintente.");)
-//
-
-  // ngOnInit(): void {
-  //   this.connectionService.setUserAndPassTest(this.username, this.password);
-  // }
-
-  // login(): void {
-  //   const storedUsername = this.connectionService.getItem('username');
-  //   const storedPassword = this.connectionService.getItem('password');
-
-  //   if (storedUsername === this.username && storedPassword === this.password) {
-  //     console.log('Login exitoso');
-  //     this.router.navigate(['/home']);
-  //   } else {
-  //     console.log('Login fallido');
-  //     this.executePopUp("Login fallido. Por favor, reintente.");
-  //   }
-  // }
-
-
-  // executePopUp(mensaje : string):void {
-  //   Swal.fire({
-  //     title: mensaje,
-  //     width: 600,
-  //     padding: "3em",
-  //     color: "#EFC206",
-  //     background: "#fff url(/assets/SWBackground.jpg)",
-  //     backdrop: `
-  //       rgba(0,0,0,0.6)
-  //     `,
-  //     customClass: {
-  //       confirmButton: 'custom-confirm-button-class'
-  //     },
-  //     confirmButtonColor: '#EFC206',
-  //     confirmButtonText: 'Aceptar'
-  //   });
-  // }
-
   userDataLoading():void {
     this.username = 'barbaram@gmail.com';
     this.password =  'root1234';

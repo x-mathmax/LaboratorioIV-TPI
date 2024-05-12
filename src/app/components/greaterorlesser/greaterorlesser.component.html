@@ -1,0 +1,14 @@
+<body>
+    <div class="container">
+        <div class="carta">
+        <img [src]="cartaActual.imagenUrl" [alt]="'Carta ' + cartaActual.valor" class="carta-img">
+        </div>
+        <div class="puntos">
+            Puntos: {{ puntos }}
+        </div>
+        <div class="botones">
+        <button (click)="eleccionMayor()">Mayor</button>
+        <button (click)="eleccionMenor()">Menor</button>
+        </div>
+    </div>
+</body>
