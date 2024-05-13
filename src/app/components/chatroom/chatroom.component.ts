@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+
 import { ChatService } from '../../services/chat.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { ConnectionService } from '../../services/connection.service';
 
 @Component({
   selector: 'app-chatroom',
@@ -16,24 +18,46 @@ import { FormsModule } from '@angular/forms';
 
 
 export class ChatroomComponent implements OnInit {
-  mensaje = '';
-  messages: any[] = [];
+  nuevoMensaje = '';
+  mensajes!: Observable<any[]>;
+  usuarioLog! : string;
 
   constructor(
     private chat: ChatService,
-    public user: AuthService,
     private auth: Auth,
-    private router: Router
+    private router: Router,
+    private connectionService: ConnectionService
   ) {}
 
   ngOnInit() {
-    this.chat.obtenerMensajes().subscribe((doc) => {
-      this.messages = doc;
-    });
+    this.mensajes = this.chat.obtenerMensajes();
+    const user = this.auth.currentUser;
+    if (user) {
+      this.usuarioLog = user.displayName || this.connectionService.getItem('username');
+    }
+
+    this.mensajes.subscribe({ next: (valor) => {
+      console.log('Valor del observable:', valor);
+    },
+    error: (error) => {
+      console.error('Error en el observable:', error);
+    },
+    complete: () => {
+      console.log('El observable ha sido completado');
+    }
+  });
+
+  
+}
+
+  esMensajePropio(emisor: string): boolean {
+    return emisor === this.usuarioLog;
   }
 
-  enviarMensaje() {
-    this.chat.enviarMensaje(this.mensaje, this.user.userInfo.email);
-    console.log(this.user.userInfo);
+  enviarMensaje(): void {
+    if (this.nuevoMensaje.trim() !== '') {
+      this.chat.agregarMensaje(this.usuarioLog, this.nuevoMensaje);
+      this.nuevoMensaje = '';
+    }
   }
 }

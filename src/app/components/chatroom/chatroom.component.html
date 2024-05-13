@@ -1,48 +1,19 @@
-<div id="container">
-    <main>
-        <ul id="chat" >
-            
-            <div  *ngFor="let item of messages ">
-                <div *ngIf="item.mail != this.user.userInfo.email ">
-                
-                <li   class="you" >
-                <div class="algo">
-                    <span class="green"></span>
-                    <h2 style="padding-right:5px ;">{{item.mail}} </h2>
-                    <h3> {{item?.dia}}, {{item?.hora}}</h3>
-                </div>
-                <div class="triangle"></div>
-                <div class="message">
-                    {{item?.message}}
-                
-                </div>
-                </li>
-                </div>
+<body>   
+    <div id="container">
+        <div *ngFor="let mensaje of mensajes | async">
+            <p>
+            <span *ngIf="esMensajePropio(mensaje.emisor); else otroUsuario">{{ 'Yo' }}</span>
+            <ng-template #otroUsuario>
+                {{ mensaje.emisor }}
+            </ng-template>
+            : {{ mensaje.mensaje }} - 
+            <span *ngIf="mensaje.hora">{{ mensaje.hora.toDate() | date:'medium' }}</span>
+            <span *ngIf="!mensaje.hora">Fecha no disponible</span>
+            </p>
+        </div>
 
-                
-            <div *ngIf="item.mail === this.user.userInfo.email">
-                <li    class="me">
-                <div class="algo">
-                    <h3>{{item?.dia}}, {{item?.hora}}</h3>
-                    <span class="blue"></span>
-                </div>
-                <div class="triangle"></div>
-                <div class="message">
-                    {{item?.message}}
-                </div>
-                </li>
-            </div>    
-            </div>
-        </ul>
-        <section>
-            <textarea placeholder="..." [(ngModel)]="mensaje"></textarea>
-        </section>
-            
+        <!-- Agregar input y botón para enviar mensaje -->
+        <input type="text" [(ngModel)]="nuevoMensaje" placeholder="Escribe tu mensaje aquí">
         <button (click)="enviarMensaje()">Enviar</button>
-    </main>
-</div>
-
-
-
-
-
+    </div>
+</body>

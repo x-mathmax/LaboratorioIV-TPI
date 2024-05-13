@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnectionService } from '../../services/connection.service';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -20,6 +21,7 @@ export class HomeComponent {
   ngOnInit(): void {
     this.currentUser = this.connectionService.getItem('username');
   }
+
 
   goAboutMe():void {
     this.router.navigate(['/about']);

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
 import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent {
   username: string;
   password: string;
 
-  constructor(private connectionService: ConnectionService, private router: Router, public auth: Auth) { 
+  constructor(private connectionService: ConnectionService, private router: Router, public auth: Auth, private firestoreService : FirestoreService) { 
     this.username = '';
     this.password = '';
   }
@@ -28,6 +29,7 @@ export class LoginComponent {
         this.username = res.user.email;
         this.connectionService.setUserAndPassTest(this.username, '');
         this.router.navigate(['/home']);
+        this.firestoreService.agregarLogUsuarios(this.username);
       } 
       
     }).catch((e) => {

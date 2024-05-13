@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { addDoc, collection, collectionData, Firestore, query, orderBy, limit, where, getDocs, CollectionReference  } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs';
+import { Usuario } from '../../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
 
-  itemsGuardar: any;
+  constructor(private firestore: Firestore, public afAuth: Auth) {}
 
-  constructor(public db: AngularFirestore) {
-    this.itemsGuardar = db.collection('/chats');
+  async agregarMensaje(emisor: string, mensaje:string){
+    try{
+      let c = collection(this.firestore, 'chats');
+      addDoc(c, { emisor: emisor, mensaje:mensaje, fecha: new Date()});
+    }catch(error){
+      console.error('No se pudo guardar el mensaje. Error:', error);
+    }
   }
 
 
-  obtenerMensajes(){
-    return this.db.collection('chats', ref => ref.orderBy('hora')).valueChanges();
-  }
-
-
-  enviarMensaje(mensaje: string, user: string){
-    this.itemsGuardar.add({
-      mail : user,
-      message : mensaje,
-      dia : new Date().toLocaleDateString(),
-      hora: new Date().toLocaleTimeString()
-    });
+  obtenerMensajes(): Observable<any[]> {
+    let c = collection(this.firestore, 'chats');
+    const q = query(c, orderBy('fecha', 'asc'));
+    return collectionData(q);
   }
 }
