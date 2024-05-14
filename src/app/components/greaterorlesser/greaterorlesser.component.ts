@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { ConnectionService } from '../../services/connection.service';
 import { Router } from '@angular/router';
+import { FirestoreService } from '../../services/firestore.service';
 
 interface Carta {
   valor: number;
@@ -43,11 +44,12 @@ export class GreaterorlesserComponent implements OnInit {
   puntos: number = 0;
   cartasMostradas: Set<number> = new Set();
 
-  constructor(private router: Router, private connectionService : ConnectionService){
+  constructor(private router: Router, private connectionService : ConnectionService, private firestoreService : FirestoreService){
     this.currentUser = '';
   }
 
   ngOnInit(): void {
+    this.currentUser = this.connectionService.getItem('username');
     this.barajarCartas();
     this.mostrarSiguienteCarta();
   }
@@ -88,5 +90,12 @@ export class GreaterorlesserComponent implements OnInit {
       this.puntos++;
     }
     this.mostrarSiguienteCarta();
+  }
+
+  goHome():void {
+    if (this.puntos != 0) {
+      this.firestoreService.agregarPuntaje(this.currentUser, this.puntos);
+    }
+    this.router.navigate(['/home']);
   }
 }

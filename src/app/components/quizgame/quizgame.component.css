@@ -7,9 +7,18 @@ body {
     overflow-x: hidden;
   }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 button {
     margin: 5px;
     padding: 10px 20px;
+    width: 200px;
+    
   }
   
   .correct-answer {
@@ -21,7 +30,38 @@ button {
   }
 
   .pj {
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
+    margin-bottom: 10px;
+  }
+
+  .backgroundYellow {
+    background-color: #EFC206;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    left: 50%;
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 200px;
+  }
+
+  .puntos,
+  .title {
+    font-family: 'Jersey 10 Charted';
+    font-size: xx-large;
+    color: white;
+    margin-top: 20px;
+  }
+
+  .arrowLeft {
+    color: #FFF;
+    background-color: #EFC206;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;  
+    padding: 0;
   }
 

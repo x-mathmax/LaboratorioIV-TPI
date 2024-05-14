@@ -1,4 +1,9 @@
 <body>
+
+  <button class="arrowLeft" (click)="goHome()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  
     <div class="ahorcado">
 
       <!-- Cuerpo -->
@@ -26,14 +31,11 @@
         </div>
       </div>
 
-
-      
-      <!-- Mensaje de resultado -->
-      <div *ngIf="resultado !== null" class="resultado">
-        {{ resultado ? '¡Felicitaciones, has ganado!' : '¡Animo! Juega nuevamente.' }}
+      <div class="puntos">
+        Puntos: {{ acumuladorPuntos }}
       </div>
       
       <!-- Reiniciar -->
-      <button (click)="reiniciarJuego()">Reiniciar</button>
+      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-md text-white backgroundYellow" (click)="reiniciarJuego()">Reiniciar Juego</button>
     </div>
 </body>

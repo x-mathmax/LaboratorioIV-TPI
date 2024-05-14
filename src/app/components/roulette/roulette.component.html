@@ -1,7 +1,16 @@
+
+
 <body>
+  <button class="arrowLeft" (click)="goHome()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  
   <div class="ruleta">
     <div class="ruleta-body" [ngClass]="{ 'spinning': spinning }" [style.transform]="spinning ? 'rotate(' + rotation + 'deg)' : ''">
       <img src="../../../assets/ruletaPrueba.png" alt="Ruleta" class="ruleta-image">
+    </div>
+    <div class="puntos">
+      Puntos: {{ puntosAcumulados }}
     </div>
     <button [disabled]="spinning" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-md text-white backgroundYellow"
     (click)="girarRuleta()">Girar</button>

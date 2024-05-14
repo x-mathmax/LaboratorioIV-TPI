@@ -1,5 +1,8 @@
 import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ConnectionService } from '../../services/connection.service';
+import { FirestoreService } from '../../services/firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hangman',
@@ -18,8 +21,16 @@ export class HangmanComponent{
     intentos: number = 0;
     partesCuerpo: boolean[] = [false, false, false, false, false, false, false];
     resultado: boolean | null = null; //t si gana, f si pierde, nada si continua
+    puntos : number = 0;
+    acumuladorPuntos : number = 0;
+    currentUser : string = '';
   
-    constructor() {
+    constructor(private connectionService : ConnectionService, private firestoreService : FirestoreService, private router : Router) {
+      
+    }
+
+    ngOnInit(): void {
+      this.currentUser = this.connectionService.getItem('username');
       this.iniciarJuego();
     }
   
@@ -43,12 +54,16 @@ export class HangmanComponent{
           }
           if (this.letrasAdivinadas.every(letra => letra)) {
             this.resultado = true; // Gana
+            this.puntos = 25;
+            this.acumuladorPuntos+=this.puntos;
+            this.connectionService.executePopUp("Felicitaciones. Has sumado 25 puntos.");
           }
         } else {
           this.intentos++;
           this.partesCuerpo[this.intentos - 1] = true; // Le agrego uno para mostrar una parte más porque no se veía
           if (this.intentos >= this.partesCuerpo.length) {
             this.resultado = false; // Pierde
+            this.connectionService.executePopUp("Has perdido. Vuelve a intentarlo nuevamente!");
           }
         }
       }
@@ -69,5 +84,12 @@ export class HangmanComponent{
 
     reiniciarJuego(): void {
       this.iniciarJuego();
+    }
+
+    goHome():void {
+      if (this.acumuladorPuntos != 0) {
+        this.firestoreService.agregarPuntaje(this.currentUser, this.acumuladorPuntos);
+      }
+      this.router.navigate(['/home']);
     }
 }

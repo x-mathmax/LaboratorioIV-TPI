@@ -1,4 +1,8 @@
 <body>
+    <button class="arrowLeft" (click)="goHome()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      
     <div class="container">
         <div class="carta">
         <img [src]="cartaActual.imagenUrl" [alt]="'Carta ' + cartaActual.valor" class="carta-img">
@@ -7,8 +11,8 @@
             Puntos: {{ puntos }}
         </div>
         <div class="botones">
-        <button (click)="eleccionMayor()">Mayor</button>
-        <button (click)="eleccionMenor()">Menor</button>
+        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-md text-white backgroundYellow" (click)="eleccionMayor()">Mayor</button>
+        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-md text-white backgroundYellow" (click)="eleccionMenor()">Menor</button>
         </div>
     </div>
 </body>

@@ -1,6 +1,9 @@
 import { CommonModule} from '@angular/common';
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { ApiswService } from '../../services/apisw.service';
+import { ConnectionService } from '../../services/connection.service';
+import { FirestoreService } from '../../services/firestore.service';
+import { Router } from '@angular/router';
 
 interface ButtonState {
   option: string;
@@ -23,10 +26,12 @@ export class QuizgameComponent implements OnInit {
   correctAnswer!: string; 
   puntos: number = 0;
   buttonStates: ButtonState[] = [];
+  currentUser : string = '';
   
-    constructor(private apiService: ApiswService) {}
+    constructor(private apiService: ApiswService, private connectionService : ConnectionService, private firestoreService : FirestoreService, private router : Router) {}
   
     ngOnInit(): void {
+      this.currentUser = this.connectionService.getItem('username');
       this.obtenerDatos();
       
     }
@@ -100,5 +105,12 @@ export class QuizgameComponent implements OnInit {
     nextButton() : void {
         this.newQuestion();
         this.initializeButtonStates();
+    }
+
+    goHome():void {
+      if (this.puntos != 0) {
+        this.firestoreService.agregarPuntaje(this.currentUser, this.puntos);
+      }
+      this.router.navigate(['/home']);
     }
   }

@@ -1,16 +1,24 @@
 <body>
-  <div *ngIf="currentCharacter">
-    <p>¿Cuál es el nombre de este personaje?</p>
-    <img [src]="currentCharacter.image" class="pj" alt="Personaje">
-    <div *ngFor="let buttonState of buttonStates; let i = index">
-        <button 
-          id="option{{i}}" 
-          (click)="checkAnswer(buttonState.option)" 
-          [style.background-color]="buttonState.backgroundColor">
-          {{ buttonState.option }}
-        </button>
-      </div>
-    <p>Puntaje: {{ puntos }}</p>
-    <button (click)="nextButton()">Siguiente</button>
+  <button class="arrowLeft" (click)="goHome()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  
+  <div class="container">
+    <div *ngIf="currentCharacter">
+      <p class="title">¿Cuál es el nombre de este personaje?</p>
+      <img [src]="currentCharacter.image" class="pj" alt="Personaje">
+      <div *ngFor="let buttonState of buttonStates; let i = index">
+          <button 
+            id="option{{i}}" 
+            (click)="checkAnswer(buttonState.option)" 
+            [style.background-color]="buttonState.backgroundColor">
+            {{ buttonState.option }}
+          </button>
+        </div>
+        <div class="puntos">
+          Puntos: {{ puntos }}
+        </div>
+      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-md text-white backgroundYellow" (click)="nextButton()">Siguiente</button>
+    </div>
   </div>
 </body>

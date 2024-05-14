@@ -1,5 +1,5 @@
 body {
-    /* background-image: url('../../../assets/SWBackground.jpg'); */
+    background-image: url('../../../assets/SWBackground.jpg');
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -16,11 +16,13 @@ body {
 .palabra {
   display: flex;
   margin-bottom: 20px;
+  color: #EFC206;
 }
 
 .letra {
   margin-right: 5px;
-  font-size: 20px;
+  font-size: 30px;
+  color: #EFC206;
 }
 
 .teclado {
@@ -34,8 +36,8 @@ body {
 .tecla {
   margin: 5px;
   padding: 5px 10px;
-  border: 1px solid #ccc;
   cursor: pointer;
+  background-color: #EFC206;
 }
 
 .tecla.seleccionada {
@@ -83,4 +85,34 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 20px;
+}
+
+.puntos {
+  font-family: 'Jersey 10 Charted';
+  font-size: xx-large;
+  color: white;
+  margin-top: 20px;
+}
+
+.backgroundYellow {
+  background-color: #EFC206;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  left: 50%;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.arrowLeft {
+  color: #FFF;
+  background-color: #EFC206;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+
 }
