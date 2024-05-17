@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ConnectionService } from '../../services/connection.service';
 
+
 @Component({
   selector: 'app-chatroom',
   standalone: true,
@@ -34,20 +35,10 @@ export class ChatroomComponent implements OnInit {
     const user = this.auth.currentUser;
     if (user) {
       this.usuarioLog = user.displayName || this.connectionService.getItem('username');
+    } else if (user == null || user == '') {
+      this.connectionService.executePopUp("El chatroom esta disponible solo para usuarios.");
+      this.goLogin();
     }
-
-    this.mensajes.subscribe({ next: (valor) => {
-      console.log('Valor del observable:', valor);
-    },
-    error: (error) => {
-      console.error('Error en el observable:', error);
-    },
-    complete: () => {
-      console.log('El observable ha sido completado');
-    }
-  });
-
-  
 }
 
   esMensajePropio(emisor: string): boolean {
@@ -60,4 +51,12 @@ export class ChatroomComponent implements OnInit {
       this.nuevoMensaje = '';
     }
   }
+
+goHome():void {
+  this.router.navigate(['/home']);
+}
+
+goLogin():void {
+  this.router.navigate(['/login']);
+}
 }

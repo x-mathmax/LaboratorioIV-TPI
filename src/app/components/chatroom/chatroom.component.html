@@ -1,19 +1,28 @@
 <body>   
-    <div id="container">
-        <div *ngFor="let mensaje of mensajes | async">
-            <p>
-            <span *ngIf="esMensajePropio(mensaje.emisor); else otroUsuario">{{ 'Yo' }}</span>
-            <ng-template #otroUsuario>
-                {{ mensaje.emisor }}
-            </ng-template>
-            : {{ mensaje.mensaje }} - 
-            <span *ngIf="mensaje.hora">{{ mensaje.hora.toDate() | date:'medium' }}</span>
-            <span *ngIf="!mensaje.hora">Fecha no disponible</span>
-            </p>
-        </div>
+    <button class="arrowLeft" (click)="goHome()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
 
-        <!-- Agregar input y botón para enviar mensaje -->
-        <input type="text" [(ngModel)]="nuevoMensaje" placeholder="Escribe tu mensaje aquí">
-        <button (click)="enviarMensaje()">Enviar</button>
-    </div>
+        <div id="container">
+            <div *ngFor="let mensaje of mensajes | async" [ngClass]="{'propio': esMensajePropio(mensaje.emisor), 'otro': !esMensajePropio(mensaje.emisor)}" class="mensaje-container">
+                <p class="emisor">
+                    <span *ngIf="esMensajePropio(mensaje.emisor); else otroUsuario">{{ 'Yo' }}</span>
+                    <ng-template #otroUsuario>
+                        {{ mensaje.emisor }}
+                    </ng-template>
+                </p>
+                <p class="mensaje">
+                    {{ mensaje.mensaje }}
+                </p>
+                <p class="fecha">
+                    <span *ngIf="mensaje.fecha">{{ mensaje.fecha.toDate() | date:'medium' }}</span>
+                    <span *ngIf="!mensaje.fecha">Fecha no disponible</span>
+                </p>
+            </div>
+    
+            <div class="input-container">
+                <input type="text" [(ngModel)]="nuevoMensaje" placeholder="Escribe tu mensaje aquí">
+                <button class="enviarMensajeBtn" (click)="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
 </body>
